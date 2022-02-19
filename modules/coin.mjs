@@ -43,16 +43,11 @@ function coinFlip() {
  */
 
 function coinFlips(flips) {
-  let answer = []
+  var res = [];
   for (let i = 0; i < flips; i++) {
-    let number = Math.random()
-    if (number > 0.5) {
-      answer[i] = "heads"
-    } else {
-      answer[i] = "tails"
-    }
+    res.push(coinFlip())
   }
-  return answer 
+  return res
 }
 
 /** Count multiple flips
