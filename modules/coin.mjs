@@ -97,13 +97,13 @@ function flipACoin(call) {
     console.log("Usage: node guess-flip --call=[heads|tails]")
   } else {
     let number = Math.random()
-    flip = ""
+    let flip = ""
     if (number > 0.5) {
       flip =  "heads"
     } else {
       flip = "tails"
     }
-    result = ""
+    let result = ""
     if (flip == call) {
       result = "win"
     } else {
