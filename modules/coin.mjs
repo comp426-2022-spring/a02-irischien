@@ -15,7 +15,12 @@
  */
 
 function coinFlip() {
-
+  let number = Math.random()
+  if (number > 0.5) {
+    return "heads"
+  } else {
+    return "tails"
+  }
 }
 
 /** Multiple coin flips
@@ -38,7 +43,16 @@ function coinFlip() {
  */
 
 function coinFlips(flips) {
-
+  let answer = []
+  for (let i = 0; i < flips; i++) {
+    let number = Math.random()
+    if (number > 0.5) {
+      answer[i] = "heads"
+    } else {
+      answer[i] = "tails"
+    }
+  }
+  return answer 
 }
 
 /** Count multiple flips
@@ -55,7 +69,15 @@ function coinFlips(flips) {
  */
 
 function countFlips(array) {
-
+  let answer = {heads: 0, tails: 0}
+  for (let i = 0; i < array.length; i++) {
+    if (array[i] == "heads") {
+      answer.heads = answer.heads + 1 
+    } else {
+      answer.tails = answer.tails + 1 
+    }
+  }
+  return answer
 }
 
 /** Flip a coin!
@@ -70,11 +92,33 @@ function countFlips(array) {
  */
 
 function flipACoin(call) {
-
+  if (call != "heads" & call != "tails" | call == null) {
+    console.log("Error: no input.")
+    console.log("Usage: node guess-flip --call=[heads|tails]")
+  } else {
+    let number = Math.random()
+    flip = ""
+    if (number > 0.5) {
+      flip =  "heads"
+    } else {
+      flip = "tails"
+    }
+    result = ""
+    if (flip == call) {
+      result = "win"
+    } else {
+      result = "lose"
+    }
+    return {call: call, flip: flip, result: result}
+  }
 }
-
 
 /** Export 
  * 
  * Export all of your named functions
 */
+
+export {coinFlip};
+export {coinFlips};
+export {countFlips};
+export {flipACoin};
