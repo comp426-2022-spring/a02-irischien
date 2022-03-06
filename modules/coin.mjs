@@ -87,25 +87,20 @@ function countFlips(array) {
  */
 
 function flipACoin(call) {
-  if (call != "heads" & call != "tails" | call == null) {
-    console.log("Error: no input.")
-    console.log("Usage: node guess-flip --call=[heads|tails]")
+  let number = Math.random()
+  let flip = ""
+  if (number > 0.5) {
+    flip =  "heads"
   } else {
-    let number = Math.random()
-    let flip = ""
-    if (number > 0.5) {
-      flip =  "heads"
-    } else {
-      flip = "tails"
-    }
-    let result = ""
-    if (flip == call) {
-      result = "win"
-    } else {
-      result = "lose"
-    }
-    return {call: call, flip: flip, result: result}
+    flip = "tails"
   }
+  let result = ""
+  if (flip == call) {
+    result = "win"
+  } else {
+    result = "lose"
+  }
+  return {call: call, flip: flip, result: result}
 }
 
 /** Export 
