@@ -86,21 +86,16 @@ function countFlips(array) {
  * returns: { call: 'tails', flip: 'heads', result: 'lose' }
  */
 
-function flipACoin(call) {
-  let number = Math.random()
-  let flip = ""
-  if (number > 0.5) {
-    flip =  "heads"
-  } else {
-    flip = "tails"
-  }
-  let result = ""
-  if (flip == call) {
+function flipACoin(called) {
+
+  let flipped = coinFlip(); 
+  let r = ""
+  if (flipped == called) {
     result = "win"
   } else {
     result = "lose"
   }
-  return {call: call, flip: flip, result: result}
+  return {call: called, flip: flipped, result: r}
 }
 
 /** Export 
