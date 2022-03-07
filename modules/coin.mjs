@@ -63,16 +63,26 @@ function coinFlips(flips) {
  * @returns {{ heads: number, tails: number }}
  */
 
-function countFlips(array) {
-  let answer = {heads: 0, tails: 0}
+ function countFlips(array) {
+  let numheads = 0;
+  let numtails = 0;
+
   for (let i = 0; i < array.length; i++) {
-    if (array[i] == "heads") {
-      answer.heads = answer.heads + 1 
-    } else {
-      answer.tails = answer.tails + 1 
+    if (array[i] == 'heads') {
+      numheads = numheads + 1;
+    }
+    if (array[i] == 'tails') {
+      numtails = numtails + 1;
     }
   }
-  return answer
+
+  if (numheads == 0) {
+    return {"tails": numtails};
+  }
+  else if (numtails == 0) {
+    return {"heads": numheads};
+  }
+  return {'heads': numheads, 'tails': numtails}
 }
 
 /** Flip a coin!
